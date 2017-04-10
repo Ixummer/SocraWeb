@@ -1,0 +1,19 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="zz-socra:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/zz_socra_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="zz-socra" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="module" name="mysql-connector-java-5.1.40-bin.jar" module-name="zz-socra" />
+          <element id="library" level="module" name="gson-2.2.4.jar" module-name="zz-socra" />
+          <element id="library" level="module" name="gson-2.2.4-javadoc.jar" module-name="zz-socra" />
+          <element id="library" level="module" name="gson-2.2.4-sources.jar" module-name="zz-socra" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="zz-socra/web/Web" />
+    </root>
+  </artifact>
+</component>

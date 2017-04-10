@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/WebContent/WEB-INF/filter" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/servlet/GoodsShowServlet.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/servlet/ManageGoodsServlet.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/servlet/ManageLoginServlet.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/servlet/ManageLogoutServlet.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/servlet/ManageModifyServlet.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/servlet/ModifyGoodsInformationServlet.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/servlet/ModifyGoodsServlet.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/servlet/QueryGoods.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/servlet/QueryGoodsInformation.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/servlet/ReplaceFilterServlet.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/servlet/UserInformationServlet.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/servlet/UserLoginServlet.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/servlet/UserLogoutServlet.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/servlet/UserRegisterServlet.java" charset="GBK" />
+  </component>
+</project>

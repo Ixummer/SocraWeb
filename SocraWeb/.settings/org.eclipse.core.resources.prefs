@@ -1,0 +1,8 @@
+eclipse.preferences.version=1
+encoding//WebContent/admin.html=UTF-8
+encoding//WebContent/error.html=UTF-8
+encoding//WebContent/index.jsp=UTF-8
+encoding//WebContent/login.html=UTF-8
+encoding//WebContent/manageGoods.jsp=UTF-8
+encoding//WebContent/register.html=UTF-8
+encoding//src/servlet/UserLoginServlet.java=UTF-8

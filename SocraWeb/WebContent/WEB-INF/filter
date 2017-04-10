@@ -1,0 +1,43 @@
+ <!-- 过滤器 
+   <filter>
+   	<filter-name>LogFilter</filter-name>
+   	<filter-class>com.socra.filter.LogFilter</filter-class>
+   	<init-param>
+   		指定初试化参数的名字 然后指定初始化参数的值  类似键值对
+   		<param-name>Site</param-name>
+   		<param-value>菜鸟教程</param-value>
+   	</init-param>
+   </filter>
+   
+   <filter-mapping>
+   	<filter-name>LogFilter</filter-name>
+   	设置filter所拦截的请求路径
+   	<url-pattern>/*</url-pattern>
+   </filter-mapping>
+   
+   设计思路：
+  0. 无论什么时候访问control页面，都需要先被过滤器过滤，
+   如果管理员已经登陆，则可以跳转到管理页面
+   如果管理员没有登陆，那么必须跳转到管理员登陆页面
+   
+   1.过滤器好像有问题，先写一个servlet实现相似的功能，但同样的，
+   同时编码也有问题，不是utf-8的编码
+   
+   2.问什么退出时，不能通过转发/重定向来跳转到正常的页面，只能通过js？而且好像只发生在html中，jsp似乎没有
+request.getRequestDispatcher("GoodsShowServlet").forward(request, response);
+   在servlet间进行跳转时确没有问题，只有从servlet到jsp出问题
+   
+   3.怎么设置session的存活时间（会话过期时间）呢？这样可以！
+session.setMaxInactiveInterval(5); // 设置session有效期,这里的5s是指静止5s没有操作就销毁.
+这会导致共用session的用户保存的状态也消失！！，经过验证是这个样子的！！！  √
+ 
+5.设置只有用户才能做出修改的操作，比如选中，比如点击跳转到新页面，已经实现用户只有登陆才能做的事情，同时允许用户修改自己的信息
+当还要修改表的结构或者是新建一张单独的表  √
+
+6.使用ajax来实现分页
+
+7.如何可以实现搜索框，然后把匹配的内容单独显示在一页
+
+8.以后记得项目统一使用UTF-8编码来处理
+
+9.在查询时应该根据序号来按顺序返回值
