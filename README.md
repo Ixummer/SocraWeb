@@ -5,7 +5,7 @@
 ![index](index.png)
 
 ## Github连接
-
+https://github.com/SocraHat/SocraWeb.git
 
 ## 环境配置
 - MySQL数据库：本人的版本是Server version: 5.7.11 MySQL Community Server (GPL)
@@ -15,7 +15,7 @@
 - JSTL-jar包：jstl.jar
 - 开发环境：EclipseEE版本
 
-###数据库表单创建
+### 数据库表单创建
 - 首先确认连接MySQL数据库的用户名是`root`，密码是`123456`
 - 创建名为`web_manage`的数据库
 - 再在该数据下创建名为`user`，`manager`，`goods`和`goodsInformation`的四个数据表
