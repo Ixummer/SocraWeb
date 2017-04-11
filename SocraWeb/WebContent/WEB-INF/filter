@@ -1,27 +1,28 @@
  <!-- 过滤器 
-   <filter>
-   	<filter-name>LogFilter</filter-name>
-   	<filter-class>com.socra.filter.LogFilter</filter-class>
-   	<init-param>
-   		指定初试化参数的名字 然后指定初始化参数的值  类似键值对
-   		<param-name>Site</param-name>
-   		<param-value>菜鸟教程</param-value>
-   	</init-param>
-   </filter>
-   
-   <filter-mapping>
-   	<filter-name>LogFilter</filter-name>
-   	设置filter所拦截的请求路径
-   	<url-pattern>/*</url-pattern>
-   </filter-mapping>
+  <filter>
+    <filter-name>ManageGoodsFilter</filter-name>
+    <filter-class>filter.ManageGoodsFilter</filter-class>
+    <init-param>
+      <param-name>Character</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>ManageGoodsFilter</filter-name>
+    <url-pattern>/manageGoods.jsp</url-pattern>
+    <dispatcher>REQUEST</dispatcher>
+    <dispatcher>FORWARD</dispatcher>
+    <dispatcher>INCLUDE</dispatcher>
+    <dispatcher>ERROR</dispatcher>
+  </filter-mapping>
    
    设计思路：
   0. 无论什么时候访问control页面，都需要先被过滤器过滤，
    如果管理员已经登陆，则可以跳转到管理页面
    如果管理员没有登陆，那么必须跳转到管理员登陆页面
    
-   1.过滤器好像有问题，先写一个servlet实现相似的功能，但同样的，
-   同时编码也有问题，不是utf-8的编码
+   1.过滤器好像有问题，无论登陆与否都被过滤到失败页面，同时，打印语句只执行了一次 ×无解
+   先写一个servlet实现相似的功能，但同样的，同时编码也有问题，不是utf-8的编码
    
    2.问什么退出时，不能通过转发/重定向来跳转到正常的页面，只能通过js？而且好像只发生在html中，jsp似乎没有
 request.getRequestDispatcher("GoodsShowServlet").forward(request, response);
@@ -39,5 +40,3 @@ session.setMaxInactiveInterval(5); // 设置session有效期,这里的5s是指静止5s没有操
 7.如何可以实现搜索框，然后把匹配的内容单独显示在一页
 
 8.以后记得项目统一使用UTF-8编码来处理
-
-9.在查询时应该根据序号来按顺序返回值

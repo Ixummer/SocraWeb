@@ -57,13 +57,13 @@ public class AdminModifyInformationServlet extends HttpServlet {
 			session.setAttribute("adminnickname", adminnickname);
 			out.print("<script type='text/javascript'>"
 					+ "alert('资料修改成功');"
-					+ "window.location='manageGoods.jsp';"
+					+ "window.location='ManageGoodsServlet';"
 					+ "</script>");
 		}else{
 			if(name!=null){
 			out.print("<script type='text/javascript'>"
 					+ "alert('资料修改失败');"
-					+ "window.location='manageGoods.jsp';"
+					+ "window.location='ManageGoodsServlet';"
 					+ "</script>");
 			}else{
 				out.print("<script type='text/javascript'>"

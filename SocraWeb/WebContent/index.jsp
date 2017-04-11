@@ -5,6 +5,12 @@
 <html>
    <head>
       <title>Home</title>
+		<%
+		response.setHeader("Pragma","No-cache");
+		response.setHeader("Cache-Control","no-cache");
+		response.setDateHeader("Expires", -10);
+		%>
+      <meta http-equiv="Pragma" contect="no-cache">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <!-- 引入 Bootstrap -->
       <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -52,7 +58,9 @@
 						%>
 					</li>
 					<li >
-						 <a href="ReplaceFilterServlet">管理仓库</a>
+						 <!-- <a href="ReplaceFilterServlet">管理仓库</a> -->
+						 <!-- <a href="manageGoods.jsp">管理仓库</a> -->
+						 <a href="ManageGoodsServlet">管理仓库</a>
 					</li>
 				</ul>
 			</div>
@@ -99,7 +107,6 @@
 						GoodsDAO dao = new GoodsDAO();
 						List<GoodsBean> list = (ArrayList<GoodsBean>)dao.getBeanList();
 						if(list!=null){
-							int i=1;
 					%>
 					<tbody>
 					<% for(GoodsBean bean : list){
@@ -120,12 +127,14 @@
 						</td>
 						<%if(session.getAttribute("nickname")!=null){ 
 							// 把要查询的内容放到session中，只能用Ajax
-						%>
+						%> 
 							<td><button onclick="jump(<%=gid %>)">查看详情</button></td>	
 						<% 	}%>		
 					</tr>
-					<%	i++;}%>
+					<%}%>
 					</tbody>
+					<%}else{ %>
+							<h1>无法获取商品信息，请先登录</h1>
 					<%} %>
 			</table>
 			</center>

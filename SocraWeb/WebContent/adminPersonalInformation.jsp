@@ -31,7 +31,7 @@
 						 <a href="index.jsp">首页</a>
 					</li>
 					<li>
-						 <a href="manageGoods.jsp">返回</a>
+						 <a href="ManageGoodsServlet">返回</a>
 					</li>
 					<li >
 						 <a href="https://www.zpcheng.me/about/">Find me</a>

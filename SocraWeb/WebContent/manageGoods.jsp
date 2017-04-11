@@ -4,7 +4,13 @@
 <!DOCTYPE html>
 <html>
    <head>
-      <title>Home</title>
+      <title>manageGoods</title>
+      	<%
+		response.setHeader("Pragma","No-cache");
+		response.setHeader("Cache-Control","no-cache");
+		response.setDateHeader("Expires", -10);
+		%>
+      <meta http-equiv="Pragma" contect="no-cache">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <!-- 引入 Bootstrap -->
       <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -28,7 +34,7 @@
 			<div class="col-md-6 column" style="padding: 0px;margin-right: 200px;width: 300px;">
 				<ul class="nav nav-pills" style="margin-top: 20px;" >
 					<li class="active">
-						 <a href="index.jsp">主页</a>
+						 <a href="index.jsp">商品展示</a>
 					</li>
 					<%
 						String adminnickname = (String)session.getAttribute("adminnickname");
@@ -36,7 +42,7 @@
 						
 					%>
 					<li>
-						 <a href="manageGoods.jsp">管理</a>
+						 <a href="ManageGoodsServlet">管理</a>
 					</li>
 					<li>
 						 <a href="adminPersonalInformation.jsp"><%=adminnickname %></a>

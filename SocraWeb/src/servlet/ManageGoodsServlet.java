@@ -48,12 +48,14 @@ public class ManageGoodsServlet extends HttpServlet {
 		
 		List<GoodsBean> goodsList = dao.getBeanList();// 表示查询数据库中的所有数据
 		HttpSession session = request.getSession();
-		//System.out.println(goodsList.size());
 		if(goodsList.size()>0 && session.getAttribute("adminnickname")!=null){
 			request.setAttribute("goodsList", goodsList);
 			request.getRequestDispatcher("manageGoods.jsp").forward(request, response); // 保存在session的东西可以跨转发
 		} else {
-			response.sendRedirect("error.html");
+			out.print("<script type='text/javascript'>");
+			out.print("alert('你没有权限，请先登录!');");
+			out.print("window.location='admin.html';");
+			out.print("</script>");
 		}
 	}
 

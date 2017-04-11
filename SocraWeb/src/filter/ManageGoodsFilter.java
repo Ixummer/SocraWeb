@@ -2,6 +2,7 @@ package filter;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -10,24 +11,23 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
-import javax.servlet.annotation.WebInitParam;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import bean.GoodsBean;
+import dao.GoodsDAO;
+
 /**
- * Servlet Filter implementation class TurnToAdmin
+ * Servlet Filter implementation class ManageGoodsFilter
  */
-@WebFilter(urlPatterns="",initParams={
-		@WebInitParam(name="Character",value="utf-8") })
-public class TurnToAdminFilter implements Filter {
-	// 用于获得初始化参数
-	private FilterConfig config;
-	
+//@WebFilter("/ManageGoodsFilter")
+public class ManageGoodsFilter implements Filter {
+
     /**
      * Default constructor. 
      */
-    public TurnToAdminFilter() {
+    public ManageGoodsFilter() {
         // TODO Auto-generated constructor stub
     }
 
@@ -55,22 +55,29 @@ public class TurnToAdminFilter implements Filter {
 		
 		// 获得管理员的id
 		String name = (String) session.getAttribute("adminnickname");
-		System.out.println(name);
+		System.out.println(name+"hello");
 		if(name==null){
 			// 没有管理员登陆，则转发至管理员登陆页面
 			request.getRequestDispatcher("admin.html").forward(request, newResponse);
 		} else{
-			request.getRequestDispatcher("ManageGoodsServlet").forward(request, newResponse);
-			// pass the request along the filter chain允许通过
-			chain.doFilter(request, response);
+			GoodsDAO dao = new GoodsDAO();
+			PrintWriter out = newResponse.getWriter();
+			
+			List<GoodsBean> goodsList = dao.getBeanList();// 表示查询数据库中的所有数据
+			if(goodsList.size()>0 && session.getAttribute("adminnickname")!=null){
+				request.setAttribute("goodsList", goodsList);
+				chain.doFilter(request, newResponse);
+			} else{
+				request.getRequestDispatcher("error.html").forward(request, newResponse);
+			}
 		}
 	}
-	
+
 	/**
 	 * @see Filter#init(FilterConfig)
 	 */
 	public void init(FilterConfig fConfig) throws ServletException {
-		this.config = config;
+		// TODO Auto-generated method stub
 	}
 
 }
